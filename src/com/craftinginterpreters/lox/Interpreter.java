@@ -52,8 +52,6 @@ class Interpreter implements
         throw new RuntimeError(operator, "Operands must be a numbers");
     }
     
-
-    
     private boolean isTruthy(Object object){
         if (object == null) return false;
         if (object instanceof Boolean) return (boolean)object;
@@ -205,6 +203,11 @@ class Interpreter implements
             if(!isTruthy(left)) return left;
         }
         return evaluate(expr.right);
+    }
+
+    @Override
+    public Void visitWhileStmt(Stmt.While stmt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
