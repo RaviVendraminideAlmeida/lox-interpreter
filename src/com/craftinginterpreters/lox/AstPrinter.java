@@ -40,5 +40,15 @@ class AstPrinter implements Expr.Visitor<String> {
         
         return builder.toString(); 
     }
+
+    @Override
+    public String visitVariableExpr(Expr.Variable expr) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String visitAssignExpr(Expr.Assign expr) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
 
