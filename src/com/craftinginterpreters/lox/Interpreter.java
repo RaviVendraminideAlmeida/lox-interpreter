@@ -72,6 +72,17 @@ class Interpreter implements
     private void execute(Stmt stmt){
         stmt.accept(this);
     }
+    
+    void executeBlock(List<Stmt> statements, Environment environment) {
+        Environment previous = this.environment;
+        try {
+            this.environment = environment;
+            
+            statements.forEach(stmt -> execute(stmt));
+        } finally {
+            this.environment = previous;
+        }
+    }
 
     @Override
     public Void visitExpressionStmt(Stmt.Expression stmt){
@@ -169,7 +180,8 @@ class Interpreter implements
 
     @Override
     public Void visitBlockStmt(Stmt.Block stmt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        executeBlock(stmt.statements, new Environment(environment));
+        return null;
     }
     
 }
