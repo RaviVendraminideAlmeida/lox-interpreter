@@ -12,6 +12,7 @@ public class GenerateAst {
             System.err.println("Usage: generate_ast <output directory>");
             System.exit(64);
         }
+
         String outputDir = args[0];
 
         defineAst(outputDir, "Expr", Arrays.asList(
@@ -21,6 +22,12 @@ public class GenerateAst {
                 "Unary    : Token operator, Expr right"
         ));
 
+        defineAst(outputDir, "Stmt", Arrays.asList(
+                "Expression : Expr expression",
+                "Print      : Expr expression"
+        ));
+        
+        
     }
 
     private static void defineAst(
