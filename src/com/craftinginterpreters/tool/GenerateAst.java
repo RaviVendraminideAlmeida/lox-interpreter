@@ -19,6 +19,7 @@ public class GenerateAst {
         String outputDir = "C:\\Users\\infoSiS-Prog1\\Documents\\NetBeansProjects\\LoxInterpreter\\src\\com\\craftinginterpreters\\lox\\"; // args[0];
 
         defineAst(outputDir, "Expr", Arrays.asList(
+                "Call     : Expr callee, Token paren, List<Expr> arguments",
                 "Assign   : Token name, Expr value",
                 "Binary   : Expr left, Token operator, Expr right",
                 "Grouping : Expr expression",
@@ -35,7 +36,9 @@ public class GenerateAst {
                 "Var        : Token name, Expr initializer",
                 "If         : Expr condition, Stmt thenBranch," +
                             " Stmt elseBranch",
-                "While      : Expr condition, Stmt body"
+                "While      : Expr condition, Stmt body",
+                "Function   : Token name, List<Token> params," +
+                            " List<Stmt> body"
         ));
         
         
