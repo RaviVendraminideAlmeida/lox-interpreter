@@ -207,7 +207,9 @@ class Interpreter implements
 
     @Override
     public Void visitWhileStmt(Stmt.While stmt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        while(isTruthy(evaluate(stmt.condition))){
+            execute(stmt.body);
+        }
+        return null;
     }
-    
 }
